@@ -1,30 +1,23 @@
 <script lang="ts">
-    import Corbado from "@corbado/web-js";
-    import type {SessionUser} from "@corbado/types";
-    import {onMount} from "svelte";
-
-    let user: SessionUser | undefined;
-
-    onMount(() => {
-        user = Corbado.user
-    })
-
+    import type { PageData } from './$types';
+    import Corbado from '@corbado/web-js';
+    import { goto } from '$app/navigation';
+ 
+    export let data: PageData
+ 
     async function handleLogout() {
         await Corbado.logout()
-        window.location.href = "/"
+        await goto("/")
     }
 </script>
-
+ 
 <div>
-    {#if (user)}
+    {#if (data.id)}
         <h1>
             Profile Page
         </h1>
         <p>
-            User-id: {user.sub}
-        </p>
-        <p>
-            Name: {user.name}
+            User-id: {data.id}
         </p>
         <button on:click={handleLogout}>
             Logout
