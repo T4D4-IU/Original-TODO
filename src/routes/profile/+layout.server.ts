@@ -1,4 +1,4 @@
-import { type RequestEvent } from '@sveltejs/kit';
+import { redirect, type RequestEvent } from '@sveltejs/kit';
 import { PUBLIC_CORBADO_PROJECT_ID } from '$env/static/public';
 import { CORBADO_API_SECRET, CORBADO_FRONTEND_API, CORBADO_BACKEND_API } from '$env/static/private';
 import { SDK, Config } from '@corbado/node-sdk';
@@ -10,14 +10,15 @@ export async function load({ request }: RequestEvent) {
     const cookies = parseCookies(request.headers.get('Cookie') || '');
     const cbo_short_session: string | undefined = cookies.cbo_short_session;
     if (!cbo_short_session) {
-        return { id: undefined }
+        // return { id: undefined }
+        redirect(302, '/');
     }
     try {
         const user = await sdk.sessions().validateToken(cbo_short_session);
 
         return { id: user.userId };
     } catch {
-        return { id: undefined }
+        // return { id: undefined }
     }
 }
 
