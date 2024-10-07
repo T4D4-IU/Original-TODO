@@ -1,9 +1,9 @@
 <script lang="ts">
     import Corbado from '@corbado/web-js';
     import {onMount} from 'svelte';
- 
+
     let authElement: HTMLDivElement;
- 
+
     onMount(() => {
         Corbado.mountAuthUI(
             authElement, {
@@ -11,5 +11,5 @@
             })
     })
 </script>
- 
+
 <div bind:this={authElement}></div>
