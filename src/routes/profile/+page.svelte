@@ -2,15 +2,15 @@
     import type { PageData } from './$types';
     import Corbado from '@corbado/web-js';
     import { goto } from '$app/navigation';
- 
+
     export let data: PageData
- 
+
     async function handleLogout() {
         await Corbado.logout()
         await goto("/")
     }
 </script>
- 
+
 <div>
     {#if (data.id)}
         <h1>
