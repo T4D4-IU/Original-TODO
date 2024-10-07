@@ -2,12 +2,12 @@
     import "../app.css";
     import Corbado from "@corbado/web-js";
     import {onMount} from "svelte";
-    const PROJECT_ID = import.meta.env.VITE_CORBADO_PROJECT_ID;
+    import { PUBLIC_CORBADO_PROJECT_ID } from '$env/static/public';
 
     let isInitialized = false;
     onMount(async () => {
         await Corbado.load({
-            projectId: PROJECT_ID,
+            projectId: PUBLIC_CORBADO_PROJECT_ID,
             darkMode: 'off',
             setShortSessionCookie: true
         });
