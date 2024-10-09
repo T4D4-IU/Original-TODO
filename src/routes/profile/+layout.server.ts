@@ -19,6 +19,7 @@ export async function load({ request }: RequestEvent) {
         return { id: user.userId };
     } catch {
         // return { id: undefined }
+        redirect(302, '/')
     }
 }
 
