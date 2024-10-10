@@ -16,7 +16,10 @@ export async function load({ request }: RequestEvent) {
     try {
         const user = await sdk.sessions().validateToken(cbo_short_session);
 
-        return { id: user.userId };
+        return {
+            id: user.userId,
+            name: user.fullName
+        };
     } catch {
         // return { id: undefined }
         redirect(302, '/')
