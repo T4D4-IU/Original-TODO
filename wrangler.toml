@@ -35,7 +35,7 @@ workers_dev = true
 [[d1_databases]]
 binding = "DB"
 database_name = "original-todo"
-database_id = "71f2ebe4-bea8-4794-b41f-8d5c376c6b9b"
+database_id = "d4d6c592-ec73-4523-8301-fd5e5a5cce42"
 
 # Bind a Durable Object. Durable objects are a scale-to-zero compute primitive based on the actor model.
 # Durable Objects can live for as long as needed. Use these when you need a long-running "server", such as in realtime apps.
