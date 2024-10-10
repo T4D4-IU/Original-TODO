@@ -18,7 +18,11 @@
         </h1>
         <p>
             User-id: {data.id}
+            User-name: {data.name}
         </p>
+        <a href="/profile/setting">set task</a>
+        <a href="/profile/tasks">check tasks</a>
+        <a href="/profile/archive">archivement</a>
         <button on:click={handleLogout}>
             Logout
         </button>
