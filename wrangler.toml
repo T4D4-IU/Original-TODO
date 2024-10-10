@@ -1,7 +1,14 @@
 #:schema node_modules/wrangler/config-schema.json
 name = "original-todo"
+# account_id = "3c6467646df579f1f48d51b423437523"
+
+main = "./.cloudflare/workers.js"
+site.bucket = "./.cloudflare/public"
+
+build.command = "pnpm run dev"
+
 compatibility_date = "2024-09-25"
-pages_build_output_dir = ".svelte-kit/cloudflare"
+workers_dev = true
 
 # Automatically place your workloads in an optimal location to minimize latency.
 # If you are running back-end logic in a Pages Function, running it closer to your back-end infrastructure
